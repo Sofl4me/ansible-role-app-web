@@ -1,0 +1,13 @@
+# roles/ansible-role-app-web/tasks/installnmp.yml
+
+- name: Vérifier que npm est installé
+  ansible.builtin.command: which npm
+  register: npm_check
+  changed_when: false
+  failed_when: npm_check.rc != 0
+
+- name: Installer les dépendances npm
+  ansible.builtin.shell: npm install
+  args:
+    chdir: "{{ app_directory }}"
+  when: npm_check.rc == 0

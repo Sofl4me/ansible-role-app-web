@@ -1,0 +1,38 @@
+---
+# tasks file for ansible-role-app-web
+- name: Mise à jour des différents Paquets
+  import_tasks: majpack.yml
+  when: ansible_distribution in ["Ubuntu", "Rocky"]
+
+- name: Supprimer curl-minimal s'il est présent
+  import_tasks: supmincurl.yml
+  when: ansible_distribution == "Rocky"
+
+- name: Installer les paquets nécessaires
+  import_tasks: installpack.yml
+
+- name: Télécharger et exécuter le script Node.js (Ubuntu)
+  import_tasks: dlexu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- name: Télécharger et exécuter le script Node.js (Rocky)
+  import_tasks: dlexr.yml
+  when: ansible_distribution == "Rocky"
+
+- name: Installer Node.js
+  import_tasks: installnode.yml
+
+- name: Cloner le dépôt quiz-ansible
+  import_tasks: gitclone.yml
+
+- name: Installer les dépendances npm
+  import_tasks: installnmp.yml
+
+- name: Installer pm2 en global
+  import_tasks: installpm2.yml
+
+- name: Compiler l'application
+  import_tasks: compliapp.yml
+
+- name: Lancer l'app avec pm2
+  import_tasks: startapp.yml

@@ -1,0 +1,14 @@
+# roles/ansible-role-app-web/tasks/installnode.yml
+
+- name: Installer Node.js (Ubuntu)
+  ansible.builtin.apt:
+    name: nodejs
+    state: present
+    update_cache: true
+  when: ansible_distribution == "Ubuntu"
+
+- name: Installer Node.js (Rocky)
+  ansible.builtin.dnf:
+    name: nodejs
+    state: present
+  when: ansible_distribution == "Rocky"

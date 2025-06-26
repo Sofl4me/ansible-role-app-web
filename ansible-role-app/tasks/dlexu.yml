@@ -1,0 +1,2 @@
+    - name: Télécharger et exécuter le script Node.js (Ubuntu)
+      ansible.builtin.shell: curl -fsSL "{{ node_setup_script_url_ubuntu }}" | bash -

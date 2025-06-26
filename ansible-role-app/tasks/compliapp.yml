@@ -1,0 +1,4 @@
+    - name: Compiler l'application
+      ansible.builtin.shell: npm run build
+      args:
+        chdir: "{{ app_directory }}"

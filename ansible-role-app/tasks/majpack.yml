@@ -1,0 +1,4 @@
+    - name: Mettre à jour les paquets
+      ansible.builtin.package:
+        name: "*"
+        state: latest

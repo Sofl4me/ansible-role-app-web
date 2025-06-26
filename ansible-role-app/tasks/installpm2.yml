@@ -1,0 +1,4 @@
+    - name: Installer pm2 en global
+      ansible.builtin.shell: npm install -g pm2
+      args:
+        creates: /usr/local/bin/pm2

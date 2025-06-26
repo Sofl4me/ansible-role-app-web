@@ -1,0 +1,6 @@
+    - name: Cloner le dépôt quiz-ansible
+      ansible.builtin.git:
+        repo: https://github.com/franklin-tutorials/quiz-ansible.git
+        dest: "{{ app_directory }}"
+        version: HEAD
+        force: true

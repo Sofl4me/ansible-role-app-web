@@ -1,0 +1,4 @@
+    - name: Lancer l'app avec pm2
+      ansible.builtin.shell: pm2 start "npx serve -s dist" --name quiz-ansible
+      args:
+        chdir: "{{ app_directory }}"

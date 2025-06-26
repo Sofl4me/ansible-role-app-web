@@ -1,0 +1,6 @@
+---
+# vars file for ansible-role-app-web
+vars:
+   app_directory: /opt/quiz-ansible
+   node_setup_script_url_ubuntu: https://deb.nodesource.com/setup_23.x
+   node_setup_script_url_rocky: https://rpm.nodesource.com/setup_23.x

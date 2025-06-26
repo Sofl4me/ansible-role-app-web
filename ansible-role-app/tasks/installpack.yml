@@ -1,0 +1,6 @@
+    - name: Installer les paquets nécessaires
+      ansible.builtin.package:
+        name:
+          - curl
+          - git
+        state: present

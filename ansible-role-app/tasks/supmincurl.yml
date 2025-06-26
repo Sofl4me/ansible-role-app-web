@@ -1,0 +1,4 @@
+    - name: Supprimer curl-minimal s'il est présent (Rocky uniquement)
+      ansible.builtin.package:
+        name: curl-minimal
+        state: absent
